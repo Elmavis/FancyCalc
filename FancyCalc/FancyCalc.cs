@@ -28,6 +28,8 @@ namespace FancyCalc
         //generic calc method. usage: "10 + 20"  => result 30
         public double Culculate(string expression)
         {
+            if (expression == null)
+                throw new ArgumentNullException();
             string[] arr = expression.Split(new char[] { '+', '-', '*' });
             double a, b;
             a = Double.Parse(arr[0]);
