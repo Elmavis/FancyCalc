@@ -8,17 +8,14 @@ namespace FancyCalc
 {
     public class FancyCalcEnguine
     {
-
         public double Add(int a, int b)
         {
-            throw new NotImplementedException();
-            //return a + b;
+            return a + b;
         }
 
 
         public double Subtract(int a, int b)
         {
-            //throw new NotImplementedException();
             return a - b;
         }
 
@@ -31,8 +28,18 @@ namespace FancyCalc
         //generic calc method. usage: "10 + 20"  => result 30
         public double Culculate(string expression)
         {
-            throw new NotImplementedException();
+            string[] arr = expression.Split(new char[] { '+', '-', '*' });
+            double a, b;
+            a = Double.Parse(arr[0]);
+            b = Double.Parse(arr[1]);
+            char sign = expression.ToCharArray()[arr[0].Length];
 
+            if (sign == '+')
+                return Add((int)a, (int)b);
+            if (sign == '-')
+                return Subtract((int)a, (int)b);
+            //if (sign == '*')
+            return Multiply((int)a, (int)b);
         }
     }
 }
